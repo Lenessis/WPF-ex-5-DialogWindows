@@ -6,11 +6,18 @@ namespace zad5
     public partial class MainWindow : Window
     {
         static public bool IsPreview = false;
-        static Preview preview;
+        static Preview preview = new Preview();
 
         public MainWindow()
         {
             InitializeComponent();
+
+            if(MovieList.SelectedIndex == -1)
+            {
+                EditButton.IsEnabled = false;
+                PreviewButton.IsEnabled = false;
+                DeleteButton.IsEnabled = false;
+            }
         }
 
         private void AddMovie(object sender, RoutedEventArgs e)
@@ -54,6 +61,7 @@ namespace zad5
             if (MovieList.SelectedIndex >= 0 && IsPreview == false)
             {
                 IsPreview = true;
+                preview = new Preview((Movie)MovieList.SelectedItem);
                 preview.Show();                // -- okno niemodalne - takie, które pozwala klikać w oknie gł.
             }
         }
@@ -76,6 +84,16 @@ namespace zad5
             {
                 Movie temp = (Movie)MovieList.SelectedItem;
                 preview.MoviePreview.Content = temp.PreviewInformation();
+
+                EditButton.IsEnabled = true;
+                PreviewButton.IsEnabled = true;
+                DeleteButton.IsEnabled = true;
+            }
+            else
+            {
+                EditButton.IsEnabled = false;
+                PreviewButton.IsEnabled = false;
+                DeleteButton.IsEnabled = false;
             }
         }
     }

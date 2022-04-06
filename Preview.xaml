@@ -14,9 +14,9 @@
         </Grid.RowDefinitions>
         
         <Label Name="MoviePreview" Grid.Row="0" Padding="5" Margin="10"/>
-        <WrapPanel Grid.Row="1" HorizontalAlignment="Center">
+       <!-- <WrapPanel Grid.Row="1" HorizontalAlignment="Center">
             <Button Click="Ok" IsDefault="True" Padding="30,10" Margin="10" >OK</Button>
-        </WrapPanel>
+        </WrapPanel> -->
         
     </Grid>
 </Window>

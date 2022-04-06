@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace zad5
 {
-    class Movie
+    public class Movie
     {
         public string title { get; set; }
         public DateTime date { get; set; }
